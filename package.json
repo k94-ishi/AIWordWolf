@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "homepage": "https://k94-ishi.github.io/ai-word-wolf",
+  "homepage": "https://k94-ishi.github.io/AIWordWolf/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
