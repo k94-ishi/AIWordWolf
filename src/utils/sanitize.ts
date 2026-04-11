@@ -8,10 +8,17 @@ export function sanitizePlayerName(raw: string): string {
 
 /**
  * Sanitize API key: strip all whitespace (common paste artifact),
- * allow only characters that appear in Anthropic keys (alphanumeric + hyphens + underscores)
+ * allow only characters that appear in Gemini keys (alphanumeric + hyphens + underscores)
  */
 export function sanitizeApiKey(raw: string): string {
   return raw.replace(/\s/g, '').replace(/[^a-zA-Z0-9\-_]/g, '');
+}
+
+/**
+ * Validate API key format and minimum length.
+ */
+export function isValidApiKey(key: string): boolean {
+  return typeof key === 'string' && key.length >= 20;
 }
 
 /**

@@ -16,7 +16,7 @@ Stack: **React + TypeScript + Tailwind CSS**, single-page app with no backend.
 | Build tool | Vite |
 | Deployment | GitHub Pages (`gh-pages` branch) |
 | AI topic generation | Google Generative AI (Gemini) — called directly from browser |
-| API key storage | `localStorage` only — never sent to any server other than `generativelanguage.googleapis.com` |
+| API key storage | `sessionStorage` only — cleared on browser close, never sent to any server other than `generativelanguage.googleapis.com` |
 
 ---
 
@@ -62,7 +62,7 @@ word-wolf/
 - No player knows which group they belong to at the start.
 
 ### Round Flow
-1. Topics (Word A & Word B) are generated via Anthropic API before word reveal.
+1. Topics (Word A & Word B) are generated via Google Generative AI (Gemini) before word reveal.
 2. Each player privately sees their own word (pass-and-play confirmation screens).
 3. Discussion phase begins with a countdown timer.
 4. When voting starts, each player votes for who they think is the minority.
@@ -78,7 +78,7 @@ word-wolf/
 
 ```
 [API Key Setup]
-      ↓ (key saved to localStorage, app "activated")
+      ↓ (key saved to sessionStorage, app "activated")
 [Game Setup]  ← also reachable from "End Game" button
   - Number of players (min 3, max 10)
   - Number of minority players (default 1, max = players - 2)
@@ -134,14 +134,14 @@ const sanitizeApiKey = (raw: string): string =>
 const handleActivate = () => {
   const clean = sanitizeApiKey(enteredKey);
   if (!clean) return; // show validation error
-  localStorage.setItem('gemini_api_key', clean);
+  sessionStorage.setItem('gemini_api_key', clean);
 };
 
 // On app load
-const storedKey = localStorage.getItem('gemini_api_key') ?? '';
+const storedKey = sessionStorage.getItem('gemini_api_key') ?? '';
 
 // All API calls use the stored key — never hard-code it
-const apiKey = localStorage.getItem('gemini_api_key') ?? '';
+const apiKey = sessionStorage.getItem('gemini_api_key') ?? '';
 ```
 
 - If no key is stored, always show [API Key Setup] first.
@@ -170,7 +170,7 @@ Format:
 <MAJORITY_WORD>WordA</MAJORITY_WORD>
 <MINORITY_WORD>WordB</MINORITY_WORD>`;
 
-const apiKey = localStorage.getItem('gemini_api_key') ?? '';
+const apiKey = sessionStorage.getItem('gemini_api_key') ?? '';
 
 const response = await fetch(
   `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent`,
@@ -325,20 +325,18 @@ This app handles user-supplied strings (player names, API key) that must **never
 
    // API key: strip all whitespace (common paste artifact), allow only
    // characters that appear in Gemini keys (alphanumeric + hyphens + underscores)
+   // and require a minimum length for validation.
    const sanitizeApiKey = (raw: string): string =>
      raw.replace(/\s/g, '').replace(/[^a-zA-Z0-9\-_]/g, '');
    ```
 
-4. **API key stored in localStorage** must be retrieved and used only as a plain string value — never concatenated into HTML or URL fragments.
+4. **API key stored in sessionStorage** must be retrieved and used only as a plain string value — never concatenated into HTML or URL fragments.
 
 5. **API response content** (topic words returned by Gemini) must also be rendered through JSX text nodes, not injected as HTML. Treat the API response as untrusted input.
 
-6. **Content Security Policy** — add the following `<meta>` tag in `index.html` to block inline script injection:
-   ```html
-   <meta http-equiv="Content-Security-Policy"
-         content="default-src 'self'; connect-src https://generativelanguage.googleapis.com; script-src 'self'; style-src 'self' 'unsafe-inline';">
-   ```
-   *(`unsafe-inline` is needed for Tailwind's style injection in dev; tighten in production if using a hash-based CSP.)*
+6. **Content Security Policy** — use a dedicated CSP injector script in `public/csp.js` to apply environment-aware policies. This keeps the application secure in production while allowing local development support.
+   - In development, the app allows `localhost` and websocket connections.
+   - In production, the app uses strict CSP with only `https://generativelanguage.googleapis.com` and no `unsafe-inline` styles.
 
 7. **Do not use `eval()`, `Function()`, `setTimeout(string)`, or `setInterval(string)`** anywhere.
 
@@ -349,7 +347,7 @@ This app handles user-supplied strings (player names, API key) that must **never
 ## Important Constraints
 
 1. **No backend** — everything runs in the browser.
-2. **No cookies** — use only `localStorage` for the API key.
+2. **No cookies** — use only `sessionStorage` for the API key (auto-cleared on browser close).
 3. **Pass-and-play** — word reveal and voting screens must fully hide information between players. Show a "Hand the device to [PlayerName]" prompt before revealing sensitive info. The TopBar "End Game" button must be hidden on these screens.
 4. The discussion timer reaching zero **must not** auto-navigate. Just display "00:00".
 5. Tie votes → eliminate the tied player with the **lowest array index**.

@@ -14,7 +14,7 @@ import { LoadingTopics } from './components/LoadingTopics';
 
 export default function App(): JSX.Element {
   const [screen, setScreen] = useState<GameScreen>(() => {
-    const hasApiKey = !!localStorage.getItem('gemini_api_key');
+    const hasApiKey = !!sessionStorage.getItem('gemini_api_key');
     return hasApiKey ? 'game-setup' : 'api-key-setup';
   });
 
@@ -36,7 +36,7 @@ export default function App(): JSX.Element {
   const { generateTopics, loading: generatingTopics, error: topicsError } = useGeminiTopics();
 
   const handleActivateApiKey = (apiKey: string) => {
-    localStorage.setItem('gemini_api_key', apiKey);
+    sessionStorage.setItem('gemini_api_key', apiKey);
     setScreen('game-setup');
   };
 
@@ -148,7 +148,7 @@ export default function App(): JSX.Element {
   };
 
   const handleChangeApiKey = () => {
-    localStorage.removeItem('gemini_api_key');
+    sessionStorage.removeItem('gemini_api_key');
     setScreen('api-key-setup');
   };
 

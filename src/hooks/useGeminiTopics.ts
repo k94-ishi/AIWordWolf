@@ -11,7 +11,7 @@ export function useGeminiTopics() {
       setError(null);
 
       try {
-        const apiKey = localStorage.getItem('gemini_api_key') ?? '';
+        const apiKey = sessionStorage.getItem('gemini_api_key') ?? '';
         if (!apiKey) {
           setError('API key not found. Please set up your API key.');
           setLoading(false);
@@ -58,9 +58,11 @@ Format:
         if (!response.ok) {
           const errorData = await response.json();
           if (response.status === 401 || response.status === 403) {
-            setError('Invalid API key. Please check your key and try again.');
+            console.error('Gemini auth error:', errorData);
+            setError('Unable to reach the AI service. Please verify your API key and try again.');
           } else {
-            setError(`API error: ${errorData.error?.message ?? 'Unknown error'}`);
+            console.error('Gemini API error:', errorData);
+            setError('Unable to reach the AI service. Please try again later.');
           }
           setLoading(false);
           return null;
@@ -70,7 +72,8 @@ Format:
         const responseText = data.candidates?.[0]?.content?.parts?.[0]?.text;
 
         if (!responseText) {
-          setError('No response from API.');
+          console.error('Gemini response missing expected text:', data);
+          setError('Unable to generate topics. Please try again.');
           setLoading(false);
           return null;
         }
@@ -79,7 +82,8 @@ Format:
         const minorityMatch = responseText.match(/<MINORITY_WORD>(.*?)<\/MINORITY_WORD>/i);
 
         if (!majorityMatch || !minorityMatch) {
-          setError('Failed to parse topic pair from API response.');
+          console.error('Gemini parse failed:', responseText);
+          setError('Unable to parse topics from the AI response. Please try again.');
           setLoading(false);
           return null;
         }
@@ -93,12 +97,13 @@ Format:
         return topics;
       } catch (err) {
         if (err instanceof SyntaxError) {
-          setError('Failed to parse API response. Please try again.');
+          console.error('Gemini syntax error:', err);
         } else if (err instanceof Error) {
-          setError(err.message);
+          console.error('Gemini unexpected error:', err);
         } else {
-          setError('An unknown error occurred.');
+          console.error('Gemini unknown error:', err);
         }
+        setError('An unexpected error occurred while generating topics. Please try again.');
         setLoading(false);
         return null;
       }

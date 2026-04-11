@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { sanitizeApiKey } from '../utils/sanitize';
+import { sanitizeApiKey, isValidApiKey } from '../utils/sanitize';
 
 interface ApiKeySetupProps {
   onActivate: (apiKey: string) => void;
@@ -11,7 +11,7 @@ export function ApiKeySetup({ onActivate }: ApiKeySetupProps): JSX.Element {
 
   const handleActivate = () => {
     const clean = sanitizeApiKey(enteredKey);
-    if (!clean) {
+    if (!clean || !isValidApiKey(clean)) {
       setError('API key is invalid. Please check and try again.');
       return;
     }

@@ -39,7 +39,7 @@ npm run preview
 
 1. Update `package.json` `homepage` field with your GitHub username:
    ```json
-   "homepage": "https://YOUR_USERNAME.github.io/word-wolf"
+   "homepage": "https://YOUR_USERNAME.github.io/AIWordWolf/"
    ```
 
 2. Deploy:
@@ -49,7 +49,7 @@ npm run preview
 
 ## Features
 
-- ✨ AI-powered topic generation using Claude API
+- ✨ AI-powered topic generation using Google Generative AI (Gemini)
 - 🎮 Pass-and-play mechanics (device passed around the table)
 - ⏱️ Customizable discussion timer
 - 📊 Persistent score tracking across rounds
@@ -73,16 +73,18 @@ npm run preview
 - **Vite** for fast development and building
 - **Tailwind CSS** for styling
 - **Google Generative AI (Gemini)** for topic generation
-- **localStorage** for API key storage (secure, never sent elsewhere)
+- **sessionStorage** for API key storage (cleared when browser closes, never sent elsewhere)
 
 ## Security
 
 - API key stored locally only
-- Content Security Policy (CSP) enabled
-- XSS protection with input sanitization
+- Content Security Policy (CSP) enabled with environment-aware loading
+- Strict CSP in production (no `unsafe-inline` styles)
+- XSS protection via React auto-escaping and input sanitization
+- No use of `dangerouslySetInnerHTML`
+- API key format validation with minimum length checks
 - No backend required
 
 ## License
 
 MIT
-# AIWordWolf
