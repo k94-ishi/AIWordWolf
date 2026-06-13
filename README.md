@@ -1,5 +1,7 @@
 # 🐺 Word Wolf
 
+**[▶ Play the demo](https://k94-ishi.github.io/AIWordWolf/)**
+
 A fun browser-based party game where players try to identify the "wolves" (minority players with a different word).
 
 ## Game Overview
@@ -50,15 +52,16 @@ npm run preview
 ## Features
 
 - ✨ AI-powered topic generation using Google Generative AI (Gemini)
+- 🃏 Offline mode with 600 built-in word pairs (no API key required)
 - 🎮 Pass-and-play mechanics (device passed around the table)
 - ⏱️ Customizable discussion timer
 - 📊 Persistent score tracking across rounds
-- 🎯 5 difficulty levels (Easy to Expert)
+- 🎯 3 difficulty levels (Easy, Normal, Hard)
 - 📱 Fully responsive design for mobile phones
 
 ## How to Play
 
-1. Set up your Anthropic API key
+1. Enter your Google Generative AI API key, or choose "Play without AI"
 2. Configure game settings (number of players, difficulty, etc.)
 3. Enter player names
 4. Each player secretly views their word
