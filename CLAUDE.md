@@ -15,7 +15,8 @@ Stack: **React + TypeScript + Tailwind CSS**, single-page app with no backend.
 | Styling | Tailwind CSS (CDN or PostCSS build) |
 | Build tool | Vite |
 | Deployment | GitHub Pages (`gh-pages` branch) |
-| AI topic generation | Google Generative AI (Gemini) — called directly from browser |
+| AI topic generation | Google Generative AI (Gemini) — called directly from browser (optional) |
+| Offline word pairs | `src/data/wordpairs.csv` — 600 built-in pairs (200 × Easy / Normal / Hard) |
 | API key storage | `sessionStorage` only — cleared on browser close, never sent to any server other than `generativelanguage.googleapis.com` |
 
 ---
@@ -27,7 +28,7 @@ word-wolf/
 ├── public/
 ├── src/
 │   ├── components/
-│   │   ├── ApiKeySetup.tsx       # API key input & activation screen
+│   │   ├── ApiKeySetup.tsx       # API key input & "Play without AI" option
 │   │   ├── GameSetup.tsx         # Player count, minority count, difficulty, timer, player names
 │   │   ├── WordReveal.tsx        # Per-player word confirmation (pass-and-play)
 │   │   ├── Discussion.tsx        # Countdown timer + vote start buttons
@@ -36,13 +37,17 @@ word-wolf/
 │   │   ├── TopicReveal.tsx       # All players' topics revealed
 │   │   ├── Scoreboard.tsx        # Cumulative scores between rounds
 │   │   └── TopBar.tsx            # Persistent "End Game" button
+│   ├── data/
+│   │   └── wordpairs.csv         # 600 built-in word pairs (200 × Easy/Normal/Hard)
 │   ├── hooks/
 │   │   └── useGeminiTopics.ts    # API call logic for topic generation
 │   ├── types/
 │   │   └── game.ts               # All shared TypeScript types
 │   ├── utils/
 │   │   ├── gameLogic.ts          # Role assignment, vote counting, score calculation
+│   │   ├── localTopics.ts        # CSV parser + random pair selector for offline mode
 │   │   └── sanitize.ts           # Input sanitization helpers (XSS prevention)
+│   ├── vite-env.d.ts             # Type declaration for ?raw CSV import
 │   ├── App.tsx
 │   └── main.tsx
 ├── index.html
@@ -62,7 +67,7 @@ word-wolf/
 - No player knows which group they belong to at the start.
 
 ### Round Flow
-1. Topics (Word A & Word B) are generated via Google Generative AI (Gemini) before word reveal.
+1. Topics (Word A & Word B) are generated before word reveal — via Gemini (AI mode) or picked randomly from the built-in CSV (offline mode).
 2. Each player privately sees their own word (pass-and-play confirmation screens).
 3. Discussion phase begins with a countdown timer.
 4. When voting starts, each player votes for who they think is the minority.
@@ -78,15 +83,19 @@ word-wolf/
 
 ```
 [API Key Setup]
-      ↓ (key saved to sessionStorage, app "activated")
+  - Enter Google Generative AI API key → "Activate" button
+  - OR click "Play without AI" to use built-in word pairs
+      ↓
 [Game Setup]  ← also reachable from "End Game" button
   - Number of players (min 3, max 10)
   - Number of minority players (default 1, max = players - 2)
-  - Difficulty: 1=Easy … 5=Hard  (default 1)
+  - Difficulty: 1=Easy / 2=Normal / 3=Hard  (default 1)
   - Discussion time in minutes (default 5)
   - Player names: one input per player, default "Player1", "Player2", ...
-      ↓  (clicking "Start" triggers API call to generate topics)
-[Loading screen while topics are generated]
+    (blank names show amber warning; default name used at game start)
+      ↓  (AI mode: triggers Gemini API call + loading screen;
+          offline mode: picks from CSV instantly, no loading screen)
+[Loading screen — AI mode only]
       ↓
 [Word Reveal — loop per player]
   Screen A: "Are you [PlayerName]?" → OK button
@@ -144,8 +153,9 @@ const storedKey = sessionStorage.getItem('gemini_api_key') ?? '';
 const apiKey = sessionStorage.getItem('gemini_api_key') ?? '';
 ```
 
-- If no key is stored, always show [API Key Setup] first.
-- Provide a small "Change API Key" link in [Game Setup] so users can update it.
+- If no key is stored **and** offline mode has not been selected, always show [API Key Setup] first.
+- "Play without AI" on the API Key Setup screen sets `useAI = false` and goes directly to Game Setup.
+- Provide a "Change API Key" button in [Game Setup] so users can update it or switch modes.
 - **Never log or transmit the key anywhere except `generativelanguage.googleapis.com`.**
 - **Never render the key value into the DOM** (e.g. don't show the full key on screen; show only the last 4 characters as a hint if needed).
 
@@ -160,7 +170,7 @@ Call this once per round, before the Word Reveal loop.
 ### Request pattern
 
 ```typescript
-const difficultyLabel = ['', 'Easy', 'Medium', 'Challenging', 'Hard', 'Expert'][difficulty];
+const difficultyLabel = ['', 'Easy', 'Normal', 'Hard'][difficulty];
 
 const prompt = `Generate two related but different English nouns or noun phrases for Word Wolf.
 Difficulty of words: ${difficultyLabel}
@@ -207,7 +217,7 @@ Parse `response.candidates[0].content.parts[0].text` by extracting the values in
 ```typescript
 // src/types/game.ts
 
-export type Difficulty = 1 | 2 | 3 | 4 | 5;
+export type Difficulty = 1 | 2 | 3; // 1=Easy, 2=Normal, 3=Hard
 
 export interface Player {
   id: number;
@@ -294,7 +304,9 @@ Add to `package.json`:
 }
 ```
 
-Set `base: '/word-wolf/'` in `vite.config.ts`.
+Set `base: '/AIWordWolf/'` in `vite.config.ts`.
+
+Demo URL: **https://k94-ishi.github.io/AIWordWolf/**
 
 ---
 
