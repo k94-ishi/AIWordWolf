@@ -40,12 +40,15 @@ export function GameSetup({ onStart, onChangeApiKey }: GameSetupProps): JSX.Elem
   const handlePlayerNameChange = (index: number, value: string) => {
     const sanitized = sanitizePlayerName(value);
     const newNames = [...playerNames];
-    newNames[index] = sanitized || `Player${index + 1}`;
+    newNames[index] = sanitized;
     setPlayerNames(newNames);
   };
 
   const handleStart = () => {
-    onStart(playerCount, minorityCount, difficulty, timerMinutes, playerNames);
+    const resolvedNames = playerNames.map((name, i) =>
+      name.trim() === '' ? `Player${i + 1}` : name
+    );
+    onStart(playerCount, minorityCount, difficulty, timerMinutes, resolvedNames);
   };
 
   const maxMinority = playerCount - 2;
@@ -136,15 +139,29 @@ export function GameSetup({ onStart, onChangeApiKey }: GameSetupProps): JSX.Elem
             </label>
             <div className="space-y-2 max-h-48 overflow-y-auto">
               {playerNames.map((name, index) => (
-                <input
-                  key={index}
-                  type="text"
-                  value={name}
-                  onChange={(e) => handlePlayerNameChange(index, e.target.value)}
-                  placeholder={`Player ${index + 1}`}
-                  maxLength={20}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
-                />
+                <div key={index}>
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => handlePlayerNameChange(index, e.target.value)}
+                    onFocus={(e) => {
+                      const len = e.target.value.length;
+                      e.target.setSelectionRange(len, len);
+                    }}
+                    placeholder={`Player${index + 1}`}
+                    maxLength={20}
+                    className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 text-sm ${
+                      name.trim() === ''
+                        ? 'border-amber-400 focus:ring-amber-400'
+                        : 'border-gray-300 focus:ring-indigo-500'
+                    }`}
+                  />
+                  {name.trim() === '' && (
+                    <p className="text-xs text-amber-500 mt-0.5 ml-1">
+                      Name is blank — will default to Player{index + 1}
+                    </p>
+                  )}
+                </div>
               ))}
             </div>
           </div>
