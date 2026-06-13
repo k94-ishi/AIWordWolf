@@ -1,0 +1,601 @@
+difficulty,majority_word,minority_word
+easy,Pizza,Burger
+easy,Coffee,Tea
+easy,Beer,Wine
+easy,Bread,Rice
+easy,Apple,Orange
+easy,Milk,Juice
+easy,Cake,Cookie
+easy,Soup,Salad
+easy,Steak,Chicken
+easy,Ice Cream,Yogurt
+easy,Chocolate,Candy
+easy,Popcorn,Chips
+easy,Pasta,Noodles
+easy,Egg,Bacon
+easy,Butter,Jam
+easy,Breakfast,Dinner
+easy,Hot Dog,Sandwich
+easy,Donut,Muffin
+easy,Potato,Carrot
+easy,Strawberry,Blueberry
+easy,Lemon,Lime
+easy,Cherry,Grape
+easy,Mango,Pineapple
+easy,Watermelon,Melon
+easy,Peach,Plum
+easy,Broccoli,Spinach
+easy,Peanut Butter,Nutella
+easy,Ketchup,Mustard
+easy,Salt,Pepper
+easy,Chicken,Beef
+easy,Dog,Cat
+easy,Lion,Tiger
+easy,Elephant,Giraffe
+easy,Dolphin,Whale
+easy,Eagle,Parrot
+easy,Butterfly,Bee
+easy,Horse,Cow
+easy,Rabbit,Squirrel
+easy,Shark,Octopus
+easy,Penguin,Polar Bear
+easy,Monkey,Gorilla
+easy,Snake,Lizard
+easy,Frog,Turtle
+easy,Crow,Owl
+easy,Goldfish,Clownfish
+easy,Duck,Goose
+easy,Deer,Moose
+easy,Wolf,Fox
+easy,Bear,Panda
+easy,Pigeon,Sparrow
+easy,Crab,Lobster
+easy,Jellyfish,Starfish
+easy,Camel,Llama
+easy,Peacock,Flamingo
+easy,Hamster,Guinea Pig
+easy,Summer,Winter
+easy,Spring,Autumn
+easy,Beach,Mountain
+easy,River,Lake
+easy,Rain,Snow
+easy,Sun,Moon
+easy,Forest,Desert
+easy,Volcano,Glacier
+easy,Hurricane,Tornado
+easy,Rainbow,Lightning
+easy,Cave,Cliff
+easy,Island,Peninsula
+easy,Jungle,Tundra
+easy,Valley,Canyon
+easy,Waterfall,Hot Spring
+easy,Ocean,Prairie
+easy,Swamp,Meadow
+easy,Earthquake,Flood
+easy,Cloud,Fog
+easy,Sunrise,Sunset
+easy,Football,Basketball
+easy,Tennis,Badminton
+easy,Swimming,Running
+easy,Skiing,Surfing
+easy,Boxing,Judo
+easy,Golf,Baseball
+easy,Volleyball,Hockey
+easy,Archery,Fencing
+easy,Yoga,Pilates
+easy,Hiking,Cycling
+easy,Fishing,Hunting
+easy,Dancing,Singing
+easy,Skateboarding,Rollerblading
+easy,Rock Climbing,Bungee Jumping
+easy,Scuba Diving,Skydiving
+easy,Chess,Checkers
+easy,Bowling,Darts
+easy,Poker,Mahjong
+easy,Paintball,Laser Tag
+easy,Escape Room,Treasure Hunt
+easy,Guitar,Piano
+easy,Drums,Trumpet
+easy,Violin,Flute
+easy,Classical Music,Rock Music
+easy,Concert,Festival
+easy,Movie,Theater Play
+easy,Novel,Comic Book
+easy,Cartoon,Documentary
+easy,Puzzle,Board Game
+easy,Doll,Action Figure
+easy,Kite,Frisbee
+easy,Circus,Magic Show
+easy,Opera,Ballet
+easy,Photography,Painting
+easy,Karaoke,Stand-up Comedy
+easy,Car,Bicycle
+easy,Train,Airplane
+easy,Boat,Submarine
+easy,Motorcycle,Scooter
+easy,Bus,Taxi
+easy,Helicopter,Hot Air Balloon
+easy,Segway,Hoverboard
+easy,Horse Carriage,Rickshaw
+easy,Canoe,Jet Ski
+easy,Tram,Subway
+easy,Ambulance,Fire Truck
+easy,Bulldozer,Crane
+easy,Rocket,Space Shuttle
+easy,Hovercraft,Speedboat
+easy,Cable Car,Monorail
+easy,Doctor,Teacher
+easy,Chef,Baker
+easy,Police Officer,Firefighter
+easy,Pilot,Sailor
+easy,Farmer,Gardener
+easy,Artist,Photographer
+easy,Actor,Musician
+easy,Lawyer,Judge
+easy,Scientist,Engineer
+easy,Nurse,Pharmacist
+easy,Carpenter,Plumber
+easy,Mechanic,Electrician
+easy,Journalist,Librarian
+easy,Astronaut,Diver
+easy,Barber,Florist
+easy,City,Village
+easy,Hotel,Camping
+easy,School,Prison
+easy,Hospital,Spa
+easy,Park,Zoo
+easy,Museum,Cinema
+easy,Restaurant,Food Truck
+easy,Library,Bookstore
+easy,Gym,Swimming Pool
+easy,Airport,Seaport
+easy,Castle,Lighthouse
+easy,Stadium,Arena
+easy,Church,Temple
+easy,Shopping Mall,Flea Market
+easy,Amusement Park,Water Park
+easy,Shirt,Dress
+easy,Boots,Sandals
+easy,Hat,Sunglasses
+easy,Gloves,Scarf
+easy,Jacket,Raincoat
+easy,Swimsuit,Pajamas
+easy,Backpack,Suitcase
+easy,Ring,Necklace
+easy,Watch,Bracelet
+easy,Tie,Belt
+easy,Chair,Sofa
+easy,Bed,Hammock
+easy,Refrigerator,Microwave
+easy,Lamp,Candle
+easy,Bathtub,Shower
+easy,Pen,Pencil
+easy,Notebook,Textbook
+easy,Sword,Shield
+easy,Crown,Throne
+easy,Mirror,Telescope
+easy,Soap,Shampoo
+easy,Toothbrush,Comb
+easy,Towel,Blanket
+easy,Key,Lock
+easy,Umbrella,Fan
+easy,Birthday,Christmas
+easy,Wedding,Graduation
+easy,Halloween,Valentine's Day
+easy,Morning,Evening
+easy,Yesterday,Tomorrow
+easy,Past,Future
+easy,North,South
+easy,Day,Night
+easy,Hot,Cold
+easy,Fast,Slow
+easy,Star,Planet
+easy,Diamond,Ruby
+easy,King,Knight
+easy,Prince,Princess
+easy,Dragon,Phoenix
+easy,Wizard,Witch
+easy,Pirate,Ninja
+easy,Hero,Villain
+easy,Santa Claus,Easter Bunny
+easy,Superhero,Supervillain
+normal,Pancake,Waffle
+normal,Ramen,Pho
+normal,Taco,Burrito
+normal,Smoothie,Milkshake
+normal,Hot Chocolate,Matcha Latte
+normal,Red Wine,White Wine
+normal,Fried Chicken,Grilled Chicken
+normal,Cheesecake,Tiramisu
+normal,Croissant,Baguette
+normal,Sushi,Tempura
+normal,Curry,Stew
+normal,Lasagna,Pot Pie
+normal,Churro,Pretzel
+normal,Frozen Yogurt,Gelato
+normal,Cupcake,Muffin
+normal,Hot Sauce,BBQ Sauce
+normal,Pita Bread,Naan
+normal,Granola Bar,Energy Bar
+normal,Sorbet,Sherbet
+normal,Paella,Risotto
+normal,Kebab,Gyro
+normal,Tapas,Dim Sum
+normal,Bibimbap,Fried Rice
+normal,Chili,Gumbo
+normal,Baklava,Cannoli
+normal,Leopard,Cheetah
+normal,Seagull,Albatross
+normal,Ostrich,Emu
+normal,Swan,Crane
+normal,Hyena,Wild Dog
+normal,Black Bear,Brown Bear
+normal,Falcon,Hawk
+normal,Ferret,Weasel
+normal,Iguana,Monitor Lizard
+normal,Macaw,Cockatoo
+normal,Otter,Beaver
+normal,Moose,Elk
+normal,Manta Ray,Stingray
+normal,Piranha,Barracuda
+normal,Scorpion,Black Widow
+normal,Firefly,Dragonfly
+normal,Cricket,Grasshopper
+normal,Hedgehog,Porcupine
+normal,Chipmunk,Gopher
+normal,Vulture,Condor
+normal,Gecko,Chameleon
+normal,Pelican,Cormorant
+normal,Lobster,Crawfish
+normal,Narwhal,Beluga Whale
+normal,Capybara,Giant Otter
+normal,Squash,Racquetball
+normal,Water Polo,Synchronized Swimming
+normal,Triathlon,Pentathlon
+normal,Windsurfing,Kitesurfing
+normal,Mountain Biking,BMX
+normal,Rowing,Dragon Boat Racing
+normal,Luge,Skeleton
+normal,Fencing,Kendo
+normal,Weightlifting,Powerlifting
+normal,Gymnastics,Acrobatics
+normal,Cliff Diving,Springboard Diving
+normal,Skateboarding,Snowboarding
+normal,CrossFit,Calisthenics
+normal,Muay Thai,Kickboxing
+normal,Capoeira,Taekwondo
+normal,Curling,Bowling
+normal,Polo,Equestrian
+normal,Softball,Baseball
+normal,American Football,Rugby
+normal,Field Hockey,Lacrosse
+normal,Jazz,Blues
+normal,Pop,Rock
+normal,Hip Hop,R&B
+normal,Country,Folk
+normal,Electronic,Techno
+normal,Reggae,Ska
+normal,Metal,Punk
+normal,Soul,Gospel
+normal,Funk,Disco
+normal,Acoustic Guitar,Electric Guitar
+normal,DJ Set,Live Concert
+normal,Album,Mixtape
+normal,Podcast,Radio Show
+normal,Music Video,Short Film
+normal,Choir,Solo Performance
+normal,Oil Painting,Acrylic Painting
+normal,Sketch,Illustration
+normal,Abstract Art,Surrealism
+normal,Photography,Videography
+normal,Documentary,Docuseries
+normal,CGI,Stop Motion Animation
+normal,Manga,Manhwa
+normal,Fantasy Novel,Science Fiction Novel
+normal,Mystery Novel,Thriller Novel
+normal,Blog,Vlog
+normal,Stand-up Comedy,Sketch Comedy
+normal,Improv Theater,Stage Acting
+normal,Graffiti,Mural
+normal,Origami,Paper Sculpture
+normal,Graphic Novel,Webcomic
+normal,Smartphone,Tablet
+normal,Laptop,Convertible Laptop
+normal,VR Headset,AR Glasses
+normal,Gaming Console,Gaming PC
+normal,Smart TV,Streaming Stick
+normal,Bluetooth Speaker,Soundbar
+normal,Digital Camera,Action Camera
+normal,Smartwatch,Fitness Tracker
+normal,Wireless Earbuds,Noise-Canceling Headphones
+normal,Electric Car,Hybrid Car
+normal,Solar Panel,Wind Turbine
+normal,3D Printer,Laser Cutter
+normal,Drone,RC Helicopter
+normal,Cryptocurrency,NFT
+normal,Virtual Assistant,Chatbot
+normal,Backpacking,Gap Year Travel
+normal,Road Trip,Train Journey
+normal,Safari,Wildlife Photography Tour
+normal,Cruise,River Cruise
+normal,City Break,Cultural Tour
+normal,Adventure Travel,Extreme Sports Trip
+normal,Solo Travel,Group Tour
+normal,Eco Tourism,Sustainable Travel
+normal,Glamping,Camping Trip
+normal,All-Inclusive Resort,Boutique Hotel
+normal,Youth Hostel,Budget Hotel
+normal,Package Tour,Custom Itinerary
+normal,Staycation,Weekend Getaway
+normal,Island Hopping,Backpacking Trip
+normal,Business Trip,Working Holiday
+normal,Nurse,Paramedic
+normal,Lawyer,Paralegal
+normal,Architect,Civil Engineer
+normal,Journalist,News Anchor
+normal,Chef,Sous Chef
+normal,Movie Director,TV Director
+normal,Game Designer,Game Developer
+normal,Graphic Designer,UX Designer
+normal,Nutritionist,Dietitian
+normal,Psychologist,Counselor
+normal,Physiotherapist,Chiropractor
+normal,Stockbroker,Financial Analyst
+normal,Sommelier,Barista
+normal,Wedding Planner,Event Organizer
+normal,Forensic Scientist,Crime Scene Investigator
+normal,Hostel,Motel
+normal,Art Gallery,Photography Studio
+normal,Theme Park,Carnival
+normal,Shopping Center,Outlet Mall
+normal,Sports Club,Fitness Studio
+normal,Day Spa,Wellness Center
+normal,Brewery,Winery
+normal,Rooftop Bar,Sky Lounge
+normal,IMAX Theater,4DX Theater
+normal,Coworking Space,Business Center
+normal,Farmer's Market,Organic Market
+normal,Convention Center,Exhibition Hall
+normal,University,Community College
+normal,Nature Reserve,National Park
+normal,Night Club,Music Venue
+normal,Valley,Gorge
+normal,Lagoon,Estuary
+normal,Glacier,Ice Sheet
+normal,Prairie,Steppe
+normal,Rainforest,Cloud Forest
+normal,Coral Reef,Kelp Forest
+normal,Geyser,Hot Spring
+normal,Mangrove,Wetland
+normal,Active Volcano,Dormant Volcano
+normal,Tidal Pool,Rock Pool
+normal,Hoodie,Pullover
+normal,Blazer,Cardigan
+normal,Sneakers,Athletic Shoes
+normal,T-shirt,Polo Shirt
+normal,Jeans,Chinos
+normal,Beret,Beanie
+normal,Trench Coat,Peacoat
+normal,Silk Scarf,Wool Scarf
+normal,Platform Shoes,Wedge Heels
+normal,Rain Boots,Snow Boots
+normal,Introvert,Extrovert
+normal,Optimist,Pessimist
+normal,Marathon,Ultra Marathon
+normal,Minimalism,Decluttering
+normal,DIY,Upcycling
+normal,Urban Gardening,Vertical Farming
+normal,Astronomy,Astrology
+normal,Archaeology,Anthropology
+normal,Startup,Small Business
+normal,Remote Work,Freelancing
+normal,Electric Guitar,Bass Guitar
+normal,Stand-up Paddleboard,Surfboard
+normal,Yoga,Meditation
+normal,Aquarium,Planetarium
+normal,Comedy Club,Open Mic Night
+normal,Literary Fiction,Genre Fiction
+normal,Street Food,Fast Food
+normal,Watercolor,Gouache
+normal,Sprint Race,Relay Race
+normal,Board Game,Card Game
+hard,Latte,Cappuccino
+hard,Macchiato,Cortado
+hard,Espresso,Ristretto
+hard,Croissant,Pain au Chocolat
+hard,Spaghetti,Linguine
+hard,Cheddar,Gouda
+hard,Brie,Camembert
+hard,Prosecco,Champagne
+hard,Bourbon,Rye Whiskey
+hard,Gin,Vodka
+hard,Salsa,Pico de Gallo
+hard,Jam,Jelly
+hard,Sour Cream,Creme Fraiche
+hard,Macaron,Madeleine
+hard,Focaccia,Ciabatta
+hard,Sriracha,Gochujang
+hard,Hummus,Baba Ganoush
+hard,Tapioca,Rice Pudding
+hard,Carbonara,Aglio e Olio
+hard,Prosciutto,Bresaola
+hard,Miso Soup,Dashi Soup
+hard,Matcha,Sencha
+hard,Kombucha,Kefir
+hard,Granola,Muesli
+hard,Panna Cotta,Creme Brulee
+hard,Alligator,Crocodile
+hard,Seal,Sea Lion
+hard,Bison,Buffalo
+hard,Llama,Alpaca
+hard,Rabbit,Hare
+hard,Turtle,Tortoise
+hard,Crow,Raven
+hard,Shrimp,Prawn
+hard,Frog,Toad
+hard,Wasp,Hornet
+hard,Salamander,Newt
+hard,Jaguar,Leopard
+hard,Chimpanzee,Bonobo
+hard,Porpoise,Dolphin
+hard,Mackerel,Sardine
+hard,Oyster,Clam
+hard,Crayfish,Lobster
+hard,Centipede,Millipede
+hard,Wolverine,Badger
+hard,Meerkat,Prairie Dog
+hard,Ibis,Heron
+hard,Finch,Sparrow
+hard,Moth,Lacewing
+hard,Tarantula,Wolf Spider
+hard,Yak,Musk Ox
+hard,Jogging,Running
+hard,Kayaking,Canoeing
+hard,Rock Climbing,Bouldering
+hard,Snorkeling,Free Diving
+hard,Judo,Brazilian Jiu-Jitsu
+hard,Sprint,Hurdles
+hard,Freestyle Swimming,Butterfly Stroke
+hard,Hot Yoga,Bikram Yoga
+hard,Powerlifting,Strongman Competition
+hard,Beach Volleyball,Indoor Volleyball
+hard,Surfing,Bodyboarding
+hard,Wakeboarding,Waterskiing
+hard,Cross-country Running,Trail Running
+hard,Speed Skating,Short Track Skating
+hard,Mogul Skiing,Freestyle Skiing
+hard,Rhythmic Gymnastics,Artistic Gymnastics
+hard,Sprint Triathlon,Olympic Triathlon
+hard,Parkour,Free Running
+hard,Freeride Mountain Biking,Downhill Mountain Biking
+hard,Indoor Cycling,Spinning Class
+hard,Violin,Viola
+hard,Cello,Double Bass
+hard,Oboe,Clarinet
+hard,Trumpet,Cornet
+hard,Ukulele,Mandolin
+hard,Classical Guitar,Acoustic Guitar
+hard,R&B,Soul
+hard,Techno,House Music
+hard,Drum and Bass,Jungle Music
+hard,Progressive Rock,Art Rock
+hard,Alt-Country,Americana
+hard,Trance,Ambient
+hard,Blues Rock,Southern Rock
+hard,Bluegrass,Country Folk
+hard,Synth Pop,New Wave
+hard,Laptop,Ultrabook
+hard,Smartwatch,Fitness Band
+hard,VPN,Proxy Server
+hard,Wi-Fi,Bluetooth
+hard,SSD,HDD
+hard,4K TV,8K TV
+hard,Podcast,Webinar
+hard,Livestream,Pre-recorded Video
+hard,App,Web App
+hard,Chatbot,Virtual Assistant
+hard,GPS Navigation,Offline Maps
+hard,Touchscreen,Stylus Pen
+hard,Voice Assistant,Smart Speaker
+hard,Cloud Backup,Local Backup
+hard,Streaming Service,Download Service
+hard,Novel,Novella
+hard,Short Story,Flash Fiction
+hard,Biography,Memoir
+hard,Editorial,Opinion Column
+hard,Haiku,Senryu
+hard,Sonnet,Ode
+hard,Impressionism,Post-Impressionism
+hard,Cubism,Futurism
+hard,Oil Pastel,Soft Pastel
+hard,Linocut,Woodblock Print
+hard,Graphic Novel,Comics
+hard,Satire,Parody
+hard,Allegory,Fable
+hard,Gouache,Tempera
+hard,Fresco,Mosaic
+hard,Inn,Bed and Breakfast
+hard,Hostel,Backpacker Lodge
+hard,Motel,Motor Lodge
+hard,Eco Lodge,Nature Resort
+hard,Airbnb,Vacation Rental
+hard,Guided Walking Tour,Self-guided Tour
+hard,Layover,Stopover
+hard,Business Class,First Class
+hard,Harbor,Marina
+hard,Pier,Jetty
+hard,Landmark,Monument
+hard,Souvenir,Keepsake
+hard,Travel Journal,Travel Blog
+hard,Tourist,Sightseer
+hard,Excursion,Day Trip
+hard,Hoodie,Sweatshirt
+hard,Blazer,Suit Jacket
+hard,Leggings,Tights
+hard,Sneakers,Running Shoes
+hard,Trench Coat,Overcoat
+hard,Beanie,Slouch Hat
+hard,Cardigan,Pullover Sweater
+hard,Cargo Pants,Utility Pants
+hard,Oxford Shoes,Loafers
+hard,Raincoat,Windbreaker
+hard,Parka,Puffer Jacket
+hard,Tank Top,Sleeveless Shirt
+hard,Crew Neck,V-neck Sweater
+hard,High Heels,Platform Heels
+hard,Slip Dress,Wrap Dress
+hard,Sofa,Loveseat
+hard,Duvet,Comforter
+hard,Blanket,Throw
+hard,Rug,Carpet
+hard,Curtains,Blinds
+hard,Pitcher,Carafe
+hard,Mug,Cup
+hard,Pot,Saucepan
+hard,Colander,Strainer
+hard,Spatula,Turner
+hard,Casserole Dish,Dutch Oven
+hard,Ladle,Serving Spoon
+hard,Kettle,Teapot
+hard,Coffee Table,Side Table
+hard,Mixing Bowl,Salad Bowl
+hard,Empathy,Sympathy
+hard,Envy,Jealousy
+hard,Guilt,Shame
+hard,Anxiety,Stress
+hard,Confidence,Arrogance
+hard,Humility,Modesty
+hard,Discipline,Self-control
+hard,Perseverance,Resilience
+hard,Creativity,Innovation
+hard,Critical Thinking,Analytical Thinking
+hard,Procrastination,Laziness
+hard,Multitasking,Time Management
+hard,Mindfulness,Meditation
+hard,Simile,Metaphor
+hard,Abbreviation,Acronym
+hard,River,Stream
+hard,Ocean,Sea
+hard,Mountain,Hill
+hard,Forest,Woodland
+hard,Pond,Lake
+hard,Bay,Gulf
+hard,Cape,Peninsula
+hard,Ravine,Gorge
+hard,Plateau,Mesa
+hard,Tundra,Arctic Desert
+hard,Psychiatrist,Psychologist
+hard,Optometrist,Ophthalmologist
+hard,Nutritionist,Dietitian
+hard,Physical Therapist,Occupational Therapist
+hard,Software Engineer,Computer Scientist
+hard,Data Analyst,Data Scientist
+hard,UX Designer,UI Designer
+hard,Marketing Manager,Brand Manager
+hard,Accountant,Bookkeeper
+hard,Copywriter,Content Writer
+hard,Climate,Weather
+hard,Epidemic,Pandemic
+hard,Dialect,Accent
+hard,Introvert,Ambivert
+hard,Fantasy,Daydream

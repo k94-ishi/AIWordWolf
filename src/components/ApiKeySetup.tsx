@@ -3,9 +3,10 @@ import { sanitizeApiKey, isValidApiKey } from '../utils/sanitize';
 
 interface ApiKeySetupProps {
   onActivate: (apiKey: string) => void;
+  onPlayOffline: () => void;
 }
 
-export function ApiKeySetup({ onActivate }: ApiKeySetupProps): JSX.Element {
+export function ApiKeySetup({ onActivate, onPlayOffline }: ApiKeySetupProps): JSX.Element {
   const [enteredKey, setEnteredKey] = useState('');
   const [error, setError] = useState('');
 
@@ -63,6 +64,19 @@ export function ApiKeySetup({ onActivate }: ApiKeySetupProps): JSX.Element {
             Activate ✅
           </button>
         </div>
+
+        <div className="mt-4 flex items-center gap-3">
+          <hr className="flex-1 border-gray-200" />
+          <span className="text-xs text-gray-400">or</span>
+          <hr className="flex-1 border-gray-200" />
+        </div>
+
+        <button
+          onClick={onPlayOffline}
+          className="w-full mt-4 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl px-6 py-3 font-bold text-lg transition"
+        >
+          Play without AI
+        </button>
 
         <p className="text-xs text-gray-500 text-center mt-6">
           Your API key is stored locally only. Never shared with any server.

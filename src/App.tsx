@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Player, GameScreen, Difficulty, TopicPair, VoteRecord } from './types/game';
 import { useGeminiTopics } from './hooks/useGeminiTopics';
 import { assignRoles, countVotes, calculateScores } from './utils/gameLogic';
+import { getLocalTopic } from './utils/localTopics';
 import { TopBar } from './components/TopBar';
 import { ApiKeySetup } from './components/ApiKeySetup';
 import { GameSetup } from './components/GameSetup';
@@ -33,11 +34,27 @@ export default function App(): JSX.Element {
   const [minorityWon, setMinorityWon] = useState(false);
   const [pointsAwarded, setPointsAwarded] = useState<Record<number, number>>({});
 
-  const { generateTopics, loading: generatingTopics, error: topicsError } = useGeminiTopics();
+  const [useAI, setUseAI] = useState<boolean>(() => !!sessionStorage.getItem('gemini_api_key'));
+
+  const { generateTopics, error: topicsError } = useGeminiTopics();
 
   const handleActivateApiKey = (apiKey: string) => {
     sessionStorage.setItem('gemini_api_key', apiKey);
+    setUseAI(true);
     setScreen('game-setup');
+  };
+
+  const handlePlayOffline = () => {
+    setUseAI(false);
+    setScreen('game-setup');
+  };
+
+  const getTopics = async (diff: Difficulty, history: TopicPair[]): Promise<TopicPair | null> => {
+    if (useAI) {
+      setScreen('loading-topics');
+      return generateTopics(diff, history);
+    }
+    return getLocalTopic(diff, history);
   };
 
   const handleGameSetupStart = async (
@@ -61,8 +78,7 @@ export default function App(): JSX.Element {
     }));
     setPlayers(newPlayers);
 
-    setScreen('loading-topics');
-    const newTopics = await generateTopics(newDifficulty, topicHistory);
+    const newTopics = await getTopics(newDifficulty, topicHistory);
     if (newTopics) {
       setTopicHistory([...topicHistory, newTopics]);
       const playersWithRoles = assignRoles(newPlayers, newMinorityCount, newTopics);
@@ -118,8 +134,7 @@ export default function App(): JSX.Element {
   };
 
   const handleNextRound = async () => {
-    setScreen('loading-topics');
-    const newTopics = await generateTopics(difficulty, topicHistory);
+    const newTopics = await getTopics(difficulty, topicHistory);
     if (newTopics) {
       setTopicHistory([...topicHistory, newTopics]);
       const playersWithRoles = assignRoles(
@@ -149,12 +164,12 @@ export default function App(): JSX.Element {
 
   const handleChangeApiKey = () => {
     sessionStorage.removeItem('gemini_api_key');
+    setUseAI(false);
     setScreen('api-key-setup');
   };
 
   const handleRetryTopics = async () => {
-    setScreen('loading-topics');
-    const newTopics = await generateTopics(difficulty, topicHistory);
+    const newTopics = await getTopics(difficulty, topicHistory);
     if (newTopics) {
       setTopicHistory([...topicHistory, newTopics]);
       const playersWithRoles = assignRoles(players, minorityCount, newTopics);
@@ -178,7 +193,7 @@ export default function App(): JSX.Element {
       {showTopBar && <TopBar onEndGame={handleEndGame} showEndButton={true} />}
 
       {screen === 'api-key-setup' && (
-        <ApiKeySetup onActivate={handleActivateApiKey} />
+        <ApiKeySetup onActivate={handleActivateApiKey} onPlayOffline={handlePlayOffline} />
       )}
 
       {screen === 'game-setup' && (
