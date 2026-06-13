@@ -93,8 +93,8 @@ export function GameSetup({ onStart, onChangeApiKey }: GameSetupProps): JSX.Elem
             <label className="block text-sm font-semibold text-gray-700 mb-2">
               Difficulty:
             </label>
-            <div className="grid grid-cols-5 gap-2">
-              {[1, 2, 3, 4, 5].map((d) => (
+            <div className="grid grid-cols-3 gap-2">
+              {[1, 2, 3].map((d) => (
                 <button
                   key={d}
                   onClick={() => setDifficulty(d as Difficulty)}
@@ -109,7 +109,7 @@ export function GameSetup({ onStart, onChangeApiKey }: GameSetupProps): JSX.Elem
               ))}
             </div>
             <p className="text-xs text-gray-500 mt-2">
-              {['', 'Easy', 'Medium', 'Challenging', 'Hard', 'Expert'][difficulty]}
+              {['', 'Easy', 'Normal', 'Hard'][difficulty]}
             </p>
           </div>
 

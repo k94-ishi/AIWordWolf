@@ -18,9 +18,7 @@ export function useGeminiTopics() {
           return null;
         }
 
-        const difficultyLabel = ['', 'Easy', 'Medium', 'Challenging', 'Hard', 'Expert'][
-          difficulty
-        ];
+        const difficultyLabel = ['', 'Easy', 'Normal', 'Hard'][difficulty];
 
         const prompt = `Generate two related but different English nouns or noun phrases for Word Wolf.
 Difficulty of words: ${difficultyLabel}

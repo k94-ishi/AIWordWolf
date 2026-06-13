@@ -38,11 +38,11 @@ export function validateMinorityCount(minorityCount: number, totalPlayers: numbe
 }
 
 /**
- * Validate difficulty (1-5)
+ * Validate difficulty (1-3)
  */
 export function validateDifficulty(difficulty: number): boolean {
   const num = Number(difficulty);
-  return !isNaN(num) && num >= 1 && num <= 5;
+  return !isNaN(num) && num >= 1 && num <= 3;
 }
 
 /**
