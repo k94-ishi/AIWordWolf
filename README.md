@@ -88,6 +88,15 @@ npm run preview
 - API key format validation with minimum length checks
 - No backend required
 
+## ToDo
+
+- Expand and improve the built-in word pairs
+- Improve usability
+- Add an in-app tutorial on how to play
+- Set up a CI/CD pipeline
+- Add unit and E2E tests
+- Update the Node.js requirement
+
 ## License
 
 MIT
